@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+  </head>
+  <body>
+    <h1>Data Products</h1>
+    <a href="/add-products"><button>Tambah Data</button></a>
+    <form action="/products" method="get">
+      <select name="category" id="">
+        <option value="drink" <%= category == 'drink' ? 'selected' : '' %>>Drink</option>
+        <option value="snack" <%= category == 'snack' ? 'selected' : '' %>>Snack</option>
+        <option value="" <%= category == '' || category == undefined ? 'selected' : '' %>>All</option>
+      </select>
+      <button type="submit">Filter</button>
+    </form>
+    <ul>
+      <% products.map((product, index) => { %>
+      <li>
+        <%= product.name %> - <%= product.stock %>
+        <a href="/products/<%= product.id %>">detail</a>
+        <a href="/edit-products/<%= product.id %>">edit</a>
+        <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+          <button type="submit">delete</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

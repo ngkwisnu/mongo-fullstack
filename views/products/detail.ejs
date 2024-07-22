@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= product.name %> | Detail</title>
+  </head>
+  <body>
+    <h1><%= product.name %></h1>
+    <ul>
+      <li>Description: <%= product.description %></li>
+      <li>Stock: <%= product.stock %></li>
+      <li>Category: <%= product.category %></li>
+      <% if (product.avilabble) { %>
+      <li>Avilabble: Yes</li>
+      <% } else { %>
+      <li>Avilabble: No</li>
+      <% } %>
+      <li>Date: <%= product.date %></li>
+      <% product.image.map(i => { %>
+      <li>Image: <%= i %></li>
+      <% }) %>
+    </ul>
+    <br />
+    <a href="/products">All Products</a>
+  </body>
+</html>
