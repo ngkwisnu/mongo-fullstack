@@ -22,6 +22,23 @@
       <% }) %>
     </ul>
     <br />
+    <h3>Garment by</h3>
+    <ul>
+      <% for (const garment of product.garment) { %>
+      <li>Name: <%= garment.name %></li>
+      <li>Location: <%= garment.location %></li>
+      <li>Contact: <%= garment.contact %></li>
+      <li>Other product:</li>
+      <ol>
+        <% for (const product of products) { %>
+        <li>Name: <%= product.name %></li>
+        <% } %>
+      </ol>
+      <% } %>
+    </ul>
     <a href="/products">All Products</a>
+    <a href="/garment/<%= product.garment[0].id %>"
+      >Back to <%= product.garment[0].name %></a
+    >
   </body>
 </html>

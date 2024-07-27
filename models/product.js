@@ -12,7 +12,7 @@ mongoose
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, "Nama tidak boleh kosong!"],
   },
   description: {
     type: String,
@@ -39,6 +39,12 @@ const productSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  garment: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Garment",
+    },
+  ],
 });
 
 const Product = mongoose.model("Product", productSchema);

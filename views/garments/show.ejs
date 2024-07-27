@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garment - <%= garment.name %></title>
+  </head>
+  <body>
+    <h1><%= garment.name %></h1>
+    <ul>
+      <li><%= garment.location %></li>
+      <li><%= garment.contact %></li>
+    </ul>
+    <h3>Products Avillable</h3>
+    <a href="/garments/<%= garment.id %>/products/add-products">Add Products</a>
+    <ol>
+      <% for (const product of garment.products) { %>
+      <a href="/products/<%= product.id %>"><li><%= product.name %></li></a>
+      <% } %>
+    </ol>
+    <a href="/garments"><button>Back</button></a>
+    <a href="/edit-garment/<%= garment.id %>"><button>Edit</button></a>
+    <form method="post" action="/garments/<%= garment.id %>?_method=DELETE">
+      <button>Delete</button>
+    </form>
+  </body>
+</html>

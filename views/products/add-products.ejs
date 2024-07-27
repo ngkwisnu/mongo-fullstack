@@ -12,7 +12,7 @@
   </style>
   <body>
     <h1>Add Products</h1>
-    <form action="/products" method="post">
+    <form action="/garments/<%= garment_id %>/products" method="post">
       <label for="name">Name</label>
       <input type="text" name="name" />
       <label for="description">Description</label>

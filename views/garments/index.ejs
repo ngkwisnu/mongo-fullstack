@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garments | Home</title>
+  </head>
+  <body>
+    <h1>Garment All</h1>
+    <a href="/add-garment">Add Garment</a>
+    <ul>
+      <% for (const garment of garments) { %>
+      <a href="/garment/<%= garment.id %>"
+        ><li><%= garment.name %> - <%= garment.location %></li></a
+      >
+      <% } %>
+    </ul>
+  </body>
+</html>
